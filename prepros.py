@@ -18,7 +18,7 @@ def get_train_test(date=None):
     points = results.get_points()
     values = results.raw["series"][0]["values"]
     columns = results.raw["series"][0]["columns"]
-    df = pd.DataFrame(values, columns=columns)
+    df = pd.DataFrame(values, columns=columns).dropna()
     df.index = [parser.parse(d) for d in df["time"].values]
     split_time = df.index[-1]-td(days=1)
 
