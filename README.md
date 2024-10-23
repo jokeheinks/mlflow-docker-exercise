@@ -9,7 +9,7 @@ Tho model is packed as a MLflow Project. When run, it fetches the newest data, t
 Here's a starting point for running and deploying a CAISO model locally:
 
 ```
-git clone https://github.com/NielsOerbaek/caiso-mlflow
+git clone https://github.itu.dk/bhei/mlflow-docker-exercise
 cd caiso-mlflow
 mlflow run .
 mlflow models serve -m model
@@ -17,8 +17,12 @@ mlflow models serve -m model
 
 You can now query the model using curl, for example:
 ```
-curl http://127.0.0.1:5000/invocations -H 'Content-Type: application/json' -d '{
-	"columns": ["Time"],
-	"data": [["2020-11-14T20:00:00"]]
+curl -X POST http://127.0.0.1:5000/invocations -H "Content-Type: application/json" -d '{
+    "dataframe_split": {
+        "columns": ["Time"],
+        "data": [
+            ["2024-10-20 14:00:00"],
+        ]
+    }
 }'
 ```
