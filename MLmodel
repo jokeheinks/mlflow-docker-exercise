@@ -1,0 +1,9 @@
+flavors:
+  python_function:
+    cloudpickle_version: 3.0.0
+    code: null
+    conda_env: conda.yaml  # Updated line
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.12.7
+    streamable: false
