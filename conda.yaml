@@ -1,0 +1,12 @@
+name: myenv
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - scikit-learn
+  - cloudpickle
+  - pip
+  - pip:
+    - mlflow
+    - influxdb
